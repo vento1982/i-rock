@@ -7,8 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav class="navbar navbar-default">
+	<div class="container">
+		<div class="navbar-header">
+			<%= link_to "i-rock", root_path, class: "navbar-brand" %>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><%= link_to "New Achievement", new_achievement_path %></li>
+		</ul>
+	</div>
+</nav>
 
-<%= yield %>
-
+<div class="container">
+<% if flash[:notice] %>
+	<div class="alert alert-info"><%= flash[:notice] %></div>
+<% end %>
+	<%= yield %>
+</div>
 </body>
 </html>
