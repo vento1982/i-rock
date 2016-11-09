@@ -1,4 +1,10 @@
 class AchievementsController < ApplicationController
+  
+  def show
+    @achievement = Achievement.find(params[:id])
+    @description = Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(@achievement.description)
+  end
+
   def new
   	@achievement = Achievement.new
   end
