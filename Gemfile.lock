@@ -197,6 +197,8 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     sexp_processor (4.7.0)
+    shoulda-matchers (3.1.1)
+      activesupport (>= 4.0.0)
     simple_form (3.1.1)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -250,6 +252,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  shoulda-matchers
   simple_form
   spring
   spring-commands-cucumber
