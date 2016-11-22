@@ -12,6 +12,9 @@
  		new_achievement_form.visit_page.fill_in_with(
  			title: 'Read a book'
  		).submit
+ 		
+ 		expect(ActionMailer::Base.deliveries.count).to eq(1)
+ 		expect(ActionMailer::Base.deliveries.last.to).to include(user.email)
 
  		expect(page).to have_content('Achiviement has been created')
  		expect(Achievement.last.title).to eq('Read a book')

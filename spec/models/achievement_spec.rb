@@ -49,7 +49,7 @@ RSpec.describe Achievement, type: :model do
 		expect(achievement.silly_title).to eq('New achievement by test@test.com')
 	end
 
-	it 'only fetches achievements which title stars from provided letters' do
+	it 'only fetches achievements which title starts from provided letters' do
 		user = FactoryGirl.create(:user)
 		achievement1 = FactoryGirl.create(:public_achievement, title: "Read a book", user: user)
 		achievement2 = FactoryGirl.create(:public_achievement, title: "Passed an exam", user: user)
@@ -61,7 +61,7 @@ RSpec.describe Achievement, type: :model do
 		user1 = FactoryGirl.create(:user, email: "marcin@wp.pl")
 		user2 = FactoryGirl.create(:user, email: "zenek@wp.pl")
 		achievement1 = FactoryGirl.create(:public_achievement,title: "Read a book", user: user1)
-		achievement2 = FactoryGirl.create(:public_achievement,title: "Rocket it", user: user2)
+		achievement2 = FactoryGirl.create(:public_achievement,title: "Pocket it", user: user2)
 
 		expect(Achievement.by_letter("R")).to eq([achievement1, achievement2])
 	end
