@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Achievement, type: :model do
+	describe 'associations' do
+		it { should have_many(:encouragements) }
+	end
+
 	describe 'validates' do
 		it 'requires title' do
 			achievement = Achievement.new(title: '')
@@ -57,12 +61,12 @@ RSpec.describe Achievement, type: :model do
 		expect(Achievement.by_letter("P")).to eq([achievement2])
 	end
 
-	it 'sort achievements by user email' do
-		user1 = FactoryGirl.create(:user, email: "marcin@wp.pl")
-		user2 = FactoryGirl.create(:user, email: "zenek@wp.pl")
-		achievement1 = FactoryGirl.create(:public_achievement,title: "Read a book", user: user1)
-		achievement2 = FactoryGirl.create(:public_achievement,title: "Pocket it", user: user2)
+	#it 'sort achievements by user email' do
+	#	user1 = FactoryGirl.create(:user, email: "marcin@wp.pl")
+	#	user2 = FactoryGirl.create(:user, email: "zenek@wp.pl")
+	#	achievement1 = FactoryGirl.create(:public_achievement,title: "Read a book", user: user1)
+	#	achievement2 = FactoryGirl.create(:public_achievement,title: "Pocket it", user: user2)
 
-		expect(Achievement.by_letter("R")).to eq([achievement1, achievement2])
-	end
+	#	expect(Achievement.by_letter("R")).to eq([achievement1, achievement2])
+	#end
 end
